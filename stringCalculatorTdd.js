@@ -6,6 +6,10 @@ function stringCalculatorTdd(str) {
     if (str === '') {
         return 0;
     }
+    
+    if (!str.includes(',') && !str.includes('\n')) {
+        return Number(str);
+    }
 }
 
 module.exports = stringCalculatorTdd;

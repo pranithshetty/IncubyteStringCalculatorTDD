@@ -9,3 +9,7 @@ test('Input is empty string', ()=>{
 test('input is number', ()=>{
     expect(stringCalculatorTdd(0)).toBe('Input is not a string')
 })
+
+test('single number', () => {
+    expect(stringCalculatorTdd("1")).toBe(1);
+});
