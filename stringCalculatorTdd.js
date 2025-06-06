@@ -16,11 +16,12 @@ function checkNegative(arr){
     let negatives = [];
     let sum = 0;
     arr.forEach(element => {
+        const num = Number(element);
        
-        if(Number(element)< 0){
-            negatives.push(element)
-        } else {
-            sum += Number(element)
+        if(num< 0){
+            negatives.push(num)
+        } else if(num <= 1000) {
+            sum += num
         }
     });
 
@@ -46,7 +47,7 @@ function stringCalculatorTdd(str) {
         delimiter.push(customDelimeter)
         str = str.slice(4)
     }
-    
+
     const splitNumbers = split(str, delimiter);
    
     try{

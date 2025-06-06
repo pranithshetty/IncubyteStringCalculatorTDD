@@ -59,3 +59,10 @@ test('handles single zero', () => {
     expect(stringCalculatorTdd("0")).toBe(0);
 });
 
+test('handles number greater than 1000', () => {
+    expect(stringCalculatorTdd("1001")).toBe(0);
+});
+
+test('handles sum with greater than 1000', () => {
+    expect(stringCalculatorTdd("2,1001")).toBe(2);
+});
