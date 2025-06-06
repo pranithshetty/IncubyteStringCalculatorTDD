@@ -18,6 +18,10 @@ test('2 numbers with delimitor ,', ()=>{
     expect(stringCalculatorTdd("1,2")).toBe(3)
 })
 
-test('2 numbers with delimitor \n', ()=>{
+test('2 numbers with delimitor "\n"', ()=>{
     expect(stringCalculatorTdd("1\n4")).toBe(5)
 })
+
+test('custom delimiter ";" works correctly', () => {
+    expect(stringCalculatorTdd("//;\n1;2")).toBe(3);
+});

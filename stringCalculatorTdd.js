@@ -14,7 +14,8 @@ function split(str,delimiter){
 }
 
 function stringCalculatorTdd(str) {
-    const delimiter = [',','\n']
+    const delimiter = [',','\n'];
+
     if (typeof str !== "string") {
         return "Input is not a string";
     }
@@ -25,6 +26,12 @@ function stringCalculatorTdd(str) {
 
     if (!str.includes(',') && !str.includes('\n')) {
         return Number(str);
+    }
+
+    if(str.startsWith('//')){
+        let customDelimeter = str[2]
+        delimiter.push(customDelimeter)
+        str = str.slice(4)
     }
     const splitNumbers = split(str, delimiter);
     return splitNumbers.reduce((acc, curr)=>acc+=Number(curr),0)
