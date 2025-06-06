@@ -12,6 +12,23 @@ function split(str,delimiter){
     res.push(curr);
     return res;
 }
+function checkNegative(arr){
+    let negatives = [];
+    let sum = 0;
+    arr.forEach(element => {
+       
+        if(Number(element)< 0){
+            negatives.push(element)
+        } else {
+            sum += Number(element)
+        }
+    });
+
+    if(negatives.length) {throw new Error(`Negatives not allowed ${negatives}`)}
+
+    return sum;
+    
+}
 
 function stringCalculatorTdd(str) {
     const delimiter = [',','\n'];
@@ -24,17 +41,20 @@ function stringCalculatorTdd(str) {
         return 0;
     }
 
-    if (!str.includes(',') && !str.includes('\n')) {
-        return Number(str);
-    }
-
     if(str.startsWith('//')){
         let customDelimeter = str[2]
         delimiter.push(customDelimeter)
         str = str.slice(4)
     }
+    
     const splitNumbers = split(str, delimiter);
-    return splitNumbers.reduce((acc, curr)=>acc+=Number(curr),0)
+   
+    try{
+       return checkNegative(splitNumbers)
+    }catch(err){
+        console.error(err.message)
+        throw err;
+    }
 
 }
 
